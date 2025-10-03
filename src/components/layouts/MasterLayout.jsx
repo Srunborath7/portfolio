@@ -18,17 +18,17 @@ function MasterLayout(){
                     </div>
                     
                 </div>
-                <div className="flex gap-5">
-                    <NavLink to={'/'} className="text-white">
+                <div className="flex gap-5 ">
+                    <NavLink to={'/'} className="text-white text-2xl">
                         My Profile
                     </NavLink>
-                     <NavLink to={'/about'} className="text-white">
+                     <NavLink to={'/about'} className="text-white text-2xl">
                         About Me
                     </NavLink>
-                     <NavLink to={'/experience'} className="text-white">
+                     <NavLink to={'/experience'} className="text-white text-2xl">
                         Experience
                     </NavLink>
-                     <NavLink to={'/cv'}className="text-white">
+                     <NavLink to={'/cv'}className="text-white text-2xl">
                         CV
                     </NavLink>
                 </div>
