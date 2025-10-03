@@ -7,7 +7,7 @@ export default function HeroCover({
   name = "Srun Borath",
   title = "Web Developer & Mobile Developer",
   socials = [
-    { type: "github", href: "#" },
+    { type: "github", href: "https://github.com/Srunborath7" },
     { type: "linkedin", href: "#" },
     { type: "twitter", href: "#" },
   ],
@@ -121,12 +121,14 @@ export default function HeroCover({
                 </svg>
               </a>
 
-              <a
-                href="#contact"
-                className="text-sm underline underline-offset-4 text-white/90"
-              >
-                Contact me
-              </a>
+            <a
+  href="https://t.me/Srun_Borath"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-sm underline underline-offset-4 text-white/90"
+>
+  Contact me on Telegram
+</a>
             </div>
 
             {/* Socials */}
