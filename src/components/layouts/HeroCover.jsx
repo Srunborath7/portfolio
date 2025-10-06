@@ -71,7 +71,7 @@ export default function HeroCover({
       `}</style>
 
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 py-20 lg:py-28">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2  items-center">
           {/* Left - Text */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -121,14 +121,14 @@ export default function HeroCover({
                 </svg>
               </a>
 
-            <a
-  href="https://t.me/Srun_Borath"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="text-sm underline underline-offset-4 text-white/90"
->
-  Contact me on Telegram
-</a>
+              <a
+                href="https://t.me/Srun_Borath"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm underline underline-offset-4 text-white/90"
+              >
+                Contact me on Telegram
+              </a>
             </div>
 
             {/* Socials */}

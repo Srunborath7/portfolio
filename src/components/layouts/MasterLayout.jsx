@@ -1,10 +1,30 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 import logo from "../../assets/logo.jpg";
+import { motion, AnimatePresence } from "framer-motion";
+import { BookUser, UserRoundPen, GraduationCap, FileSearch } from "lucide-react";
 
 function MasterLayout() {
   const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef(null);
+
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    }
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isOpen]);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -17,7 +37,7 @@ function MasterLayout() {
           </div>
           <div>
             <div className="text-2xl font-bold">Portfolio</div>
-            <div className="text-[14px]">SRUN Borath</div>
+            <div className="text-amber-300">Srun Borath</div>
           </div>
         </div>
 
@@ -33,7 +53,7 @@ function MasterLayout() {
               }`
             }
           >
-            My Profile
+            <div><book-user /></div> My Profile
           </NavLink>
 
           <NavLink
@@ -50,7 +70,7 @@ function MasterLayout() {
           </NavLink>
 
           <NavLink
-            to="/experience"
+            to="/education"
             className={({ isActive }) =>
               `relative text-2xl font-medium transition duration-300 ${
                 isActive
@@ -59,7 +79,7 @@ function MasterLayout() {
               }`
             }
           >
-            Experience
+            Education
           </NavLink>
 
           <NavLink
@@ -78,7 +98,7 @@ function MasterLayout() {
 
         {/* Mobile Button */}
         <button
-          className="md:hidden text-white text-3xl"
+          className="md:hidden text-white text-3xl hover:text-amber-200 focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <HiX /> : <HiMenu />}
@@ -86,65 +106,126 @@ function MasterLayout() {
       </header>
 
       {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden bg-blue-950 flex flex-col items-center gap-6 py-6">
-          <NavLink
-            to="/"
-            onClick={() => setIsOpen(false)}
-            className={({ isActive }) =>
-              `relative text-xl font-medium transition duration-300 ${
-                isActive
-                  ? "text-amber-300 font-bold after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-gradient-to-r after:from-rose-400 after:to-amber-300"
-                  : "text-white hover:text-amber-200"
-              }`
-            }
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="md:hidden fixed inset-0 z-50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
           >
-            My Profile
-          </NavLink>
+            {/* Background Overlay */}
+            <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
 
-          <NavLink
-            to="/about"
-            onClick={() => setIsOpen(false)}
-            className={({ isActive }) =>
-              `relative text-xl font-medium transition duration-300 ${
-                isActive
-                  ? "text-amber-300 font-bold after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-gradient-to-r after:from-rose-400 after:to-amber-300"
-                  : "text-white hover:text-amber-200"
-              }`
-            }
-          >
-            About Me
-          </NavLink>
+            {/* Menu */}
+            <motion.div
+              ref={menuRef}
+              initial={{ x: -300, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: -300, opacity: 0 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+              className="relative h-full w-64 bg-blue-950/95 flex flex-col gap-8 py-8 px-6 shadow-xl"
+            >
+              {/* Logo */}
+              <div className="flex justify-center mb-6 flex-col items-center gap-2">
+                <h1>
+                  <span className="text-3xl font-bold text-white mr-2">
+                    Portfolio
+                  </span>
+                  <br />
+                  <span className="text-1xl font-bold text-amber-300">
+                    Srun Borath
+                  </span>
+                </h1>
+                <div className="w-40">
+                  <img
+                    src={logo}
+                    alt="logo"
+                    className="rounded-full shadow-lg border-amber-300 border-5"
+                  />
+                </div>
+              </div>
 
-          <NavLink
-            to="/experience"
-            onClick={() => setIsOpen(false)}
-            className={({ isActive }) =>
-              `relative text-xl font-medium transition duration-300 ${
-                isActive
-                  ? "text-amber-300 font-bold after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-gradient-to-r after:from-rose-400 after:to-amber-300"
-                  : "text-white hover:text-amber-200"
-              }`
-            }
-          >
-            Experience
-          </NavLink>
+              {/* Navigation */}
+              <div className="flex flex-col gap-6">
+                <NavLink
+                  to="/"
+                  onClick={() => setIsOpen(false)}
+                  className={({ isActive }) =>
+                    `relative text-xl font-medium transition duration-300 ${
+                      isActive
+                        ? "text-amber-300 font-bold after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-gradient-to-r after:from-rose-400 after:to-amber-300"
+                        : "text-white hover:text-amber-200"
+                    }`
+                  }
+                >
+                  <div className="flex items-center gap-3">
+                    <BookUser /> My Profile
+                  </div>
+                </NavLink>
 
-          <NavLink
-            to="/cv"
-            onClick={() => setIsOpen(false)}
-            className={({ isActive }) =>
-              `relative text-xl font-medium transition duration-300 ${
-                isActive
-                  ? "text-amber-300 font-bold after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-gradient-to-r after:from-rose-400 after:to-amber-300"
-                  : "text-white hover:text-amber-200"
-              }`
-            }
-          >
-            CV
-          </NavLink>
-        </div>
-      )}
+                <NavLink
+                  to="/about"
+                  onClick={() => setIsOpen(false)}
+                  className={({ isActive }) =>
+                    `relative text-xl font-medium transition duration-300 ${
+                      isActive
+                        ? "text-amber-300 font-bold after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-gradient-to-r after:from-rose-400 after:to-amber-300"
+                        : "text-white hover:text-amber-200"
+                    }`
+                  }
+                >
+                  <div className="flex items-center gap-3">
+                    <UserRoundPen /> About Me
+                  </div>
+                </NavLink>
+
+                <NavLink
+                  to="/education"
+                  onClick={() => setIsOpen(false)}
+                  className={({ isActive }) =>
+                    `relative text-xl font-medium transition duration-300 ${
+                      isActive
+                        ? "text-amber-300 font-bold after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-gradient-to-r after:from-rose-400 after:to-amber-300"
+                        : "text-white hover:text-amber-200"
+                    }`
+                  }
+                >
+                  <div className="flex items-center gap-3">
+                    <GraduationCap /> Education
+                  </div>
+                </NavLink>
+
+                <NavLink
+                  to="/cv"
+                  onClick={() => setIsOpen(false)}
+                  className={({ isActive }) =>
+                    `relative text-xl font-medium transition duration-300 ${
+                      isActive
+                        ? "text-amber-300 font-bold after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-gradient-to-r after:from-rose-400 after:to-amber-300"
+                        : "text-white hover:text-amber-200"
+                    }`
+                  }
+                >
+                  <div className="flex items-center gap-3">
+                    <FileSearch /> CV
+                  </div>
+                </NavLink>
+              </div>
+
+              {/* Footer / Contact */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="mt-auto text-center text-white/70 text-sm"
+              >
+                © 2026 Srun Borath
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Main */}
       <main className="flex-1">
