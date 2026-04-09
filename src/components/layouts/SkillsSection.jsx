@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import {
   SiPython, SiLaravel, SiNodedotjs, SiReact, SiFlutter,
-  SiMongodb, SiJavascript, SiHtml5, SiCss3, SiGit, SiFigma
+  SiMongodb, SiJavascript, SiHtml5, SiCss3, SiGit, SiFigma,SiKotlin,
 } from "react-icons/si";
-import { FaDatabase } from "react-icons/fa";
+import { FaChartBar, FaDatabase } from "react-icons/fa";
 import { GiArtificialIntelligence } from "react-icons/gi";
 import { SiCplusplus } from "react-icons/si";
 
@@ -19,7 +19,9 @@ const skills = [
   { name: "Node.js", icon: <SiNodedotjs />, level: 65, category: "Backend" },
 
   // Mobile
-  { name: "Flutter", icon: <SiFlutter />, level: 65, category: "Mobile" },
+  { name: "Flutter", icon: <SiFlutter />, level: 60, category: "Mobile" },
+  { name: "Kotlin", icon: <SiKotlin />, level: 60, category: "Mobile" },
+
 
   // Programming
   { name: "Python", icon: <SiPython />, level: 70, category: "Programming" },
@@ -34,7 +36,8 @@ const skills = [
 
   // Tools
   { name: "Git", icon: <SiGit />, level: 70, category: "Tools" },
-  { name: "Figma", icon: <SiFigma />, level: 65, category: "Tools" },
+  { name: "Figma", icon: <SiFigma />, level: 60, category: "Tools" },
+  { name: "Power BI", icon: <FaChartBar />, level: 65, category: "Tools" },
 ];
 
 export default function SkillsSection() {
