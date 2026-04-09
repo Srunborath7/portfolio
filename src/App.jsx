@@ -6,6 +6,7 @@ import AboutMe from "./components/pages/AboutMe"
 import Education from "./components/pages/Education"
 import Contact from "./components/pages/Contact"
 import WorkExperience from "./components/pages/WorkExperience"
+import PageNotFound from "./components/pages/PageNotFound"
 function App() {
   return (
     <BrowserRouter>
@@ -17,6 +18,7 @@ function App() {
           <Route path="/education" element={<Education />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/work-experience" element={<WorkExperience />} />
+          <Route path="*" element={<PageNotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>
