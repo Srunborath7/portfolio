@@ -8,14 +8,13 @@ import {
   UserRoundPen,
   GraduationCap,
   FileSearch,
-  Briefcase,
 } from "lucide-react";
 
 function MasterLayout() {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
 
-  // CLOSE ON OUTSIDE CLICK
+  // Close mobile menu when clicking outside
   useEffect(() => {
     function handleClickOutside(event) {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
@@ -27,30 +26,19 @@ function MasterLayout() {
       document.addEventListener("mousedown", handleClickOutside);
     }
 
-    return () => {
+    return () =>
       document.removeEventListener("mousedown", handleClickOutside);
-    };
   }, [isOpen]);
 
-  // LOCK BODY SCROLL (FIX TELEGRAM BUG)
+  // Fix scroll lock (Telegram safe)
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-
-    return () => {
-      document.body.style.overflow = "auto";
-    };
+    document.documentElement.style.overflow = isOpen ? "hidden" : "auto";
   }, [isOpen]);
 
   return (
-    <div className="min-h-[100dvh] flex flex-col bg-slate-950">
-
+    <div className="min-h-screen flex flex-col bg-slate-950">
       {/* HEADER */}
-      <header className="bg-blue-950 flex justify-around items-center px-6 py-3 sticky top-0 z-[60] shadow-lg">
-
+      <header className="bg-blue-950 flex justify-around items-center px-6 py-3 sticky top-0 z-50 shadow-lg pt-[env(safe-area-inset-top)]">
         {/* LOGO */}
         <div className="flex items-center gap-2 text-white">
           <div className="w-[3rem]">
@@ -64,13 +52,13 @@ function MasterLayout() {
 
         {/* DESKTOP NAV */}
         <nav className="hidden md:flex gap-8">
-
           <NavLink
             to="/"
+            end
             className={({ isActive }) =>
               `relative text-xl font-medium transition ${
                 isActive
-                  ? "text-amber-300 font-bold"
+                  ? "text-amber-300 font-bold after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-[3px] after:bg-gradient-to-r after:from-rose-400 after:to-amber-300 after:rounded-full"
                   : "text-white hover:text-amber-200"
               }`
             }
@@ -85,13 +73,13 @@ function MasterLayout() {
             className={({ isActive }) =>
               `relative text-xl font-medium transition ${
                 isActive
-                  ? "text-amber-300 font-bold"
+                  ? "text-amber-300 font-bold after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-[3px] after:bg-gradient-to-r after:from-rose-400 after:to-amber-300 after:rounded-full"
                   : "text-white hover:text-amber-200"
               }`
             }
           >
             <div className="flex items-center gap-2">
-              <Briefcase size={20} /> Work Experience
+              <UserRoundPen size={20} /> Work Experience
             </div>
           </NavLink>
 
@@ -100,7 +88,7 @@ function MasterLayout() {
             className={({ isActive }) =>
               `relative text-xl font-medium transition ${
                 isActive
-                  ? "text-amber-300 font-bold"
+                  ? "text-amber-300 font-bold after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-[3px] after:bg-gradient-to-r after:from-rose-400 after:to-amber-300 after:rounded-full"
                   : "text-white hover:text-amber-200"
               }`
             }
@@ -115,7 +103,7 @@ function MasterLayout() {
             className={({ isActive }) =>
               `relative text-xl font-medium transition ${
                 isActive
-                  ? "text-amber-300 font-bold"
+                  ? "text-amber-300 font-bold after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-[3px] after:bg-gradient-to-r after:from-rose-400 after:to-amber-300 after:rounded-full"
                   : "text-white hover:text-amber-200"
               }`
             }
@@ -124,7 +112,6 @@ function MasterLayout() {
               <FileSearch size={20} /> CV
             </div>
           </NavLink>
-
         </nav>
 
         {/* MOBILE BUTTON */}
@@ -155,7 +142,7 @@ function MasterLayout() {
               animate={{ x: 0 }}
               exit={{ x: -300 }}
               transition={{ duration: 0.3 }}
-              className="relative h-full w-72 bg-blue-950 p-6 flex flex-col gap-6"
+              className="relative h-full w-72 bg-blue-950 p-6 flex flex-col gap-6 pt-[env(safe-area-inset-top)]"
             >
               {/* LOGO */}
               <div className="text-center">
@@ -164,52 +151,81 @@ function MasterLayout() {
                   alt="logo"
                   className="w-24 mx-auto rounded-full mb-3"
                 />
-                <h2 className="text-white font-bold text-xl">
-                  Portfolio
-                </h2>
+                <h2 className="text-white font-bold text-xl">Portfolio</h2>
                 <p className="text-amber-300">Srun Borath</p>
               </div>
 
               {/* LINKS */}
               <div className="flex flex-col gap-5 mt-4">
-
-                <NavLink to="/" onClick={() => setIsOpen(false)}
-                  className="text-white flex items-center gap-3 text-lg"
+                <NavLink
+                  to="/"
+                  end
+                  onClick={() => setIsOpen(false)}
+                  className={({ isActive }) =>
+                    `flex items-center gap-3 text-lg ${
+                      isActive
+                        ? "text-amber-300 font-bold"
+                        : "text-white"
+                    }`
+                  }
                 >
                   <BookUser /> My Profile
                 </NavLink>
 
-                <NavLink to="/work-experience" onClick={() => setIsOpen(false)}
-                  className="text-white flex items-center gap-3 text-lg"
+                <NavLink
+                  to="/work-experience"
+                  onClick={() => setIsOpen(false)}
+                  className={({ isActive }) =>
+                    `flex items-center gap-3 text-lg ${
+                      isActive
+                        ? "text-amber-300 font-bold"
+                        : "text-white"
+                    }`
+                  }
                 >
-                  <Briefcase /> Work Experience
+                  <UserRoundPen /> Work Experience
                 </NavLink>
 
-                <NavLink to="/education" onClick={() => setIsOpen(false)}
-                  className="text-white flex items-center gap-3 text-lg"
+                <NavLink
+                  to="/education"
+                  onClick={() => setIsOpen(false)}
+                  className={({ isActive }) =>
+                    `flex items-center gap-3 text-lg ${
+                      isActive
+                        ? "text-amber-300 font-bold"
+                        : "text-white"
+                    }`
+                  }
                 >
                   <GraduationCap /> Education
                 </NavLink>
 
-                <NavLink to="/cv" onClick={() => setIsOpen(false)}
-                  className="text-white flex items-center gap-3 text-lg"
+                <NavLink
+                  to="/cv"
+                  onClick={() => setIsOpen(false)}
+                  className={({ isActive }) =>
+                    `flex items-center gap-3 text-lg ${
+                      isActive
+                        ? "text-amber-300 font-bold"
+                        : "text-white"
+                    }`
+                  }
                 >
                   <FileSearch /> CV
                 </NavLink>
-
               </div>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* MAIN CONTENT */}
+      {/* MAIN */}
       <main className="flex-1">
         <Outlet />
       </main>
 
       {/* FOOTER */}
-      <footer className="bg-blue-950 text-white text-center py-4 text-sm">
+      <footer className="bg-blue-950 text-white text-center py-5 text-sm pb-[env(safe-area-inset-bottom)]">
         © {new Date().getFullYear()} SRUN Borath. All rights reserved.
       </footer>
     </div>
