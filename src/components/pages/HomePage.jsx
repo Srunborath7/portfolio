@@ -14,7 +14,7 @@ function HomePage(){
             <div>
                 <SkillsSection/>
             </div>
-            <div>
+            <div id="contact">
                 <Contact/>
             </div>
         </div>  
