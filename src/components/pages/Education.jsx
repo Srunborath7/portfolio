@@ -72,14 +72,14 @@ function Education() {
   ]);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800 text-white py-20 px-6">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-slate-950 via-indigo-950 to-sky-900 text-white py-20 px-6">
       
       <motion.h1
-        className="text-5xl md:text-6xl font-extrabold text-amber-300 mb-12 text-center"
+        className="flex text-4xl font-extrabold text-center mb-16 items-center"
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        Education
+        🎓Education
       </motion.h1>
 
       <div className="relative w-full max-w-4xl before:content-[''] before:absolute before:left-5 md:before:left-1/2 before:top-0 before:h-full before:w-1 before:bg-gradient-to-b before:from-amber-300 before:to-rose-400">
