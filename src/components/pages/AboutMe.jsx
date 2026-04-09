@@ -78,7 +78,7 @@ export default function AboutMe() {
 
           <p className="text-lg text-white/90 leading-relaxed">
             Hello! I'm{" "}
-            <span className="font-semibold text-amber-300">Borath</span>. I'm 22
+            <span className="font-semibold text-amber-300">Borath</span>. I'm 23
             years old and currently a Year 4 student at the{" "}
             <span className="font-semibold text-sky-300">
               University of Puthisastra
@@ -94,7 +94,7 @@ export default function AboutMe() {
             <span className="font-semibold text-emerald-300">
               responsible, orderly, and honest
             </span>{" "}
-            — always striving to learn and build meaningful projects.
+            always striving to learn and build meaningful projects.
           </p>
 
           <div className="mt-8">

@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 import logo from "../../assets/logo.jpg";
 import { motion, AnimatePresence } from "framer-motion";
-import { BookUser, UserRoundPen, GraduationCap, FileSearch } from "lucide-react";
+import { BookUser, UserRoundPen, GraduationCap, FileSearch, Briefcase } from "lucide-react";
 
 function MasterLayout() {
   const [isOpen, setIsOpen] = useState(false);
@@ -57,7 +57,7 @@ function MasterLayout() {
           </NavLink>
 
           <NavLink
-            to="/about"
+            to="/work-experience"
             className={({ isActive }) =>
               `relative text-2xl font-medium transition duration-300 ${
                 isActive
@@ -66,7 +66,7 @@ function MasterLayout() {
               }`
             }
           >
-            About Me
+            Work Experience
           </NavLink>
 
           <NavLink
@@ -165,7 +165,7 @@ function MasterLayout() {
                 </NavLink>
 
                 <NavLink
-                  to="/about"
+                  to="/work-experience"
                   onClick={() => setIsOpen(false)}
                   className={({ isActive }) =>
                     `relative text-xl font-medium transition duration-300 ${
@@ -176,7 +176,7 @@ function MasterLayout() {
                   }
                 >
                   <div className="flex items-center gap-3">
-                    <UserRoundPen /> About Me
+                    <Briefcase /> Work Experience
                   </div>
                 </NavLink>
 

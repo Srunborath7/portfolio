@@ -4,7 +4,8 @@ import HomePage from "./components/pages/HomePage"
 import CVPage from "./components/pages/CVPage"
 import AboutMe from "./components/pages/AboutMe"
 import Education from "./components/pages/Education"
-
+import Contact from "./components/pages/Contact"
+import WorkExperience from "./components/pages/WorkExperience"
 function App() {
   return (
     <BrowserRouter>
@@ -14,6 +15,8 @@ function App() {
           <Route path="/about" element={<AboutMe />} />
           <Route path="/cv" element={<CVPage />} />
           <Route path="/education" element={<Education />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/work-experience" element={<WorkExperience />} />
         </Route>
       </Routes>
     </BrowserRouter>
