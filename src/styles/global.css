@@ -61,6 +61,7 @@
 
 html{
   scroll-behavior:smooth;
+  scrollbar-color: #8b5cf6 #0f172a;
 }
 
 body{
@@ -69,6 +70,7 @@ body{
   font-family:'Poppins',sans-serif;
   overflow-x:hidden;
   transition:all .3s ease;
+
 }
 
 a{
