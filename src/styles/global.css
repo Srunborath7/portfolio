@@ -70,7 +70,6 @@ body{
   font-family:'Poppins',sans-serif;
   overflow-x:hidden;
   transition:all .3s ease;
-
 }
 
 a{
@@ -469,6 +468,7 @@ button{
 @media(max-width:992px){
 
   .hero-content{
+    margin-top: 10vh;
     grid-template-columns:1fr;
     text-align:center;
   }
