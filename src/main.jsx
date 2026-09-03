@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 import ReactDOM from "react-dom/client";
 
@@ -18,3 +19,19 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     </LanguageProvider>
   </ThemeProvider>
 );
+=======
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+import { AppProvider } from './context/AppContext'
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <AppProvider>
+      <App />
+    </AppProvider>
+  </StrictMode>,
+)
+
+>>>>>>> a982dd4 (feet: upgrade version)
