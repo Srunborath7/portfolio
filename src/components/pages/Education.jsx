@@ -11,7 +11,6 @@ import { educationData } from "../../data/educationData";
 
 export default function Education() {
   const { t, language, isDark } = useApp();
-
   const educations = educationData.educations.map((item) => ({
     institution: item.institution[language] || item.institution.en,
     department: item.department[language] || item.department.en,
