@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import {
   FaGithub,
   FaLinkedin,
@@ -14,22 +14,25 @@ export default function Hero() {
   const { language } = useLanguage();
   const t = translations[language];
 
-  const titles =
-    language === "en"
-      ? [
-        "Web Developer",
-        "Mobile App Developer",
-        "Full Stack Developer",
-        "React Developer",
-        "Flutter Developer"
-      ]
-      : [
-        "អ្នកអភិវឌ្ឍន៍វេបសាយ",
-        "អ្នកអភិវឌ្ឍន៍កម្មវិធីទូរស័ព្ទ",
-        "អ្នកអភិវឌ្ឍន៍ Full Stack",
-        "អ្នកអភិវឌ្ឍន៍ React",
-        "អ្នកអភិវឌ្ឍន៍ Flutter"
-      ];
+  const titles = useMemo(
+    () =>
+      language === "en"
+        ? [
+            "Web Developer",
+            "Mobile App Developer",
+            "Full Stack Developer",
+            "React Developer",
+            "Flutter Developer"
+          ]
+        : [
+            "អ្នកអភិវឌ្ឍន៍វេបសាយ",
+            "អ្នកអភិវឌ្ឍន៍កម្មវិធីទូរស័ព្ទ",
+            "អ្នកអភិវឌ្ឍន៍ Full Stack",
+            "អ្នកអភិវឌ្ឍន៍ React",
+            "អ្នកអភិវឌ្ឍន៍ Flutter"
+          ],
+    [language]
+  );
 
   const [text, setText] = useState("");
   const [titleIndex, setTitleIndex] = useState(0);

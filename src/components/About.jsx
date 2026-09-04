@@ -8,20 +8,15 @@ export default function About() {
   const { language } = useLanguage();
   const t = translations[language].about;
   const [projects, setProjects] = useState(0);
-  const [experience, setExperience] = useState(0);
 
   useEffect(() => {
     let p = 0;
-    let e = 0;
 
     const interval = setInterval(() => {
       if (p < 20) setProjects((prev) => prev + 1);
-      if (e < 4) setExperience((prev) => prev + 1);
-
       p++;
-      e++;
 
-      if (p >= 20 && e >= 4) clearInterval(interval);
+      if (p >= 20) clearInterval(interval);
     }, 80);
 
     return () => clearInterval(interval);

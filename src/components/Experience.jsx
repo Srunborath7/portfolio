@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import {
-  FaBriefcase,
   FaChalkboardTeacher,
   FaUsers
 } from "react-icons/fa";

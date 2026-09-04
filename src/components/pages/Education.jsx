@@ -1,16 +1,15 @@
-import React from "react";
 import { motion } from "framer-motion";
 import {
   GraduationCap,
-  Sparkles,
   Calendar,
   HeartHandshake,
 } from "lucide-react";
 import { useApp } from "../../context/AppContext";
 import { educationData } from "../../data/educationData";
+import "../../styles/education.css";
 
 export default function Education() {
-  const { t, language, isDark } = useApp();
+  const { t, language } = useApp();
   const educations = educationData.educations.map((item) => ({
     institution: item.institution[language] || item.institution.en,
     department: item.department[language] || item.department.en,
@@ -30,31 +29,29 @@ export default function Education() {
   }));
 
   return (
-    <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 relative min-h-screen">
+    <section className="education-section">
       {/* Background radial glow */}
-      <div className="absolute bottom-10 right-10 w-80 sm:w-96 h-80 sm:h-96 bg-rose-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="education-glow" />
 
-      <div className="max-w-6xl mx-auto space-y-12 sm:space-y-16 relative z-10">
+      <div className="app-container">
         {/* Header */}
-        <div className="text-center space-y-3 max-w-2xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/10 border border-amber-400/20 text-amber-500 dark:text-amber-300 text-xs font-semibold uppercase tracking-wider">
+        <div className="section-header-block">
+          <div className="section-badge">
             <GraduationCap size={14} /> {t("edu_badge")}
           </div>
-          <h2 className={`text-3xl sm:text-4xl font-extrabold tracking-tight ${
-            isDark ? "text-white" : "text-slate-900"
-          }`}>
+          <h2 className="section-title">
             {t("edu_title_pre")}{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-rose-500 to-sky-500">
+            <span className="text-gradient">
               {t("edu_title_highlight")}
             </span>
           </h2>
-          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
+          <p className="section-subtitle">
             {t("edu_sub")}
           </p>
         </div>
 
         {/* Education Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+        <div className="education-cards-grid">
           {educations.map((item, index) => (
             <motion.div
               key={index}
@@ -62,53 +59,37 @@ export default function Education() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              className={`p-6 sm:p-7 rounded-3xl border backdrop-blur-xl shadow-md transition-all duration-300 flex flex-col justify-between space-y-5 sm:space-y-6 ${
-                isDark
-                  ? "bg-slate-900/90 border-slate-800 hover:border-amber-400/40"
-                  : "bg-white border-slate-200 hover:border-slate-300 hover:shadow-xl"
-              }`}
+              className="education-card"
             >
-              <div className="space-y-3.5">
-                <div className="flex justify-between items-start gap-2">
-                  <span className={`px-3 py-1 rounded-full text-xs font-bold border ${
-                    isDark ? "bg-amber-400/10 border-amber-400/25 text-amber-300" : "bg-amber-50 border-amber-200 text-amber-900"
-                  }`}>
+              <div>
+                <div className="education-header-row">
+                  <span className="institution-badge">
                     {item.badge}
                   </span>
-                  <span className="text-xs font-mono text-slate-500 dark:text-slate-400 font-medium flex items-center gap-1.5">
+                  <span className="edu-year-tag">
                     <Calendar size={13} /> {item.year}
                   </span>
                 </div>
 
-                <div>
-                  <h3 className={`text-lg sm:text-xl font-bold leading-snug ${
-                    isDark ? "text-white" : "text-slate-950"
-                  }`}>
-                    {item.degree}
-                  </h3>
-                  <div className="text-xs sm:text-sm font-semibold text-sky-600 dark:text-sky-300 mt-1">
+                <div style={{ marginTop: "1rem", display: "flex", flexDirection: "column", gap: "0.35rem" }}>
+                  <h3 className="education-institution-name">
                     {item.institution}
-                  </div>
-                  <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 font-medium">
-                    {item.department}
+                  </h3>
+                  <div className="education-department-name">
+                    {item.degree} • {item.department}
                   </div>
                 </div>
 
-                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
+                <p className="education-degree-desc" style={{ marginTop: "0.75rem" }}>
                   {item.description}
                 </p>
               </div>
 
-              {/* Topics */}
-              <div className="flex flex-wrap gap-1.5 pt-3 border-t border-slate-200 dark:border-slate-800">
+              {/* Topics chips */}
+              <div className="education-topics-chips">
                 {item.topics.map((topic, i) => (
-                  <span
-                    key={i}
-                    className={`px-2.5 py-1 rounded-lg text-xs font-mono font-medium border ${
-                      isDark ? "bg-slate-950 text-slate-300 border-slate-800" : "bg-slate-100 text-slate-800 border-slate-200"
-                    }`}
-                  >
-                    ✦ {topic}
+                  <span key={i} className="edu-topic-tag">
+                    {topic}
                   </span>
                 ))}
               </div>
@@ -116,68 +97,47 @@ export default function Education() {
           ))}
         </div>
 
-        {/* Volunteer & Workshop Section */}
-        <div className="space-y-6 sm:space-y-8 pt-4 sm:pt-6">
-          <div className="flex items-center gap-3">
-            <div className={`p-3 rounded-2xl border ${
-              isDark ? "bg-slate-950 border-slate-800 text-amber-400" : "bg-amber-50 border-amber-200 text-amber-700 shadow-xs"
-            }`}>
-              <HeartHandshake size={22} />
-            </div>
-            <div>
-              <h3 className={`text-xl sm:text-2xl font-bold ${
-                isDark ? "text-white" : "text-slate-950"
-              }`}>
-                {t("edu_volunteer_title")}
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 font-medium">
-                {t("edu_volunteer_sub")}
-              </p>
-            </div>
+        {/* Community Volunteer Activities */}
+        <div className="activities-sub-header">
+          <div className="section-badge" style={{ background: "rgba(244, 63, 94, 0.12)", borderColor: "rgba(244, 63, 94, 0.25)", color: "var(--accent-rose)" }}>
+            <HeartHandshake size={14} /> {t("edu_volunteer_title")}
           </div>
+          <h3 className="activities-title">
+            {language === "kh" ? "ការចូលរួមសកម្មភាព & សិក្ខាសាលា" : "Leadership & Community"}
+          </h3>
+          <p className="section-subtitle">
+            {t("edu_volunteer_sub")}
+          </p>
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
-            {activities.map((act, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, scale: 0.98 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1, duration: 0.4 }}
-                className={`p-6 rounded-3xl border backdrop-blur-xl shadow-md space-y-3.5 transition ${
-                  isDark
-                    ? "bg-slate-900/90 border-slate-800 hover:border-amber-400/30"
-                    : "bg-white border-slate-200 hover:border-slate-300 hover:shadow-lg"
-                }`}
-              >
-                <div className="flex justify-between items-start gap-2">
-                  <div>
-                    <h4 className={`text-base sm:text-lg font-bold ${
-                      isDark ? "text-white" : "text-slate-950"
-                    }`}>
-                      {act.title}
-                    </h4>
-                    <span className="text-xs font-semibold text-amber-600 dark:text-amber-300">
-                      {act.role}
-                    </span>
-                  </div>
-                  <span className={`text-xs font-mono px-3 py-1 rounded-full border shrink-0 ${
-                    isDark ? "bg-slate-950 border-slate-800 text-slate-400" : "bg-slate-100 border-slate-200 text-slate-700 font-medium"
-                  }`}>
-                    {act.years}
-                  </span>
+        <div className="activities-grid">
+          {activities.map((act, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
+              className="activity-card"
+            >
+              <div>
+                <div className="activity-role">
+                  {act.role}
                 </div>
-
-                <div className="text-xs text-slate-500 dark:text-slate-400 font-semibold">
-                  🏛️ {act.organizer}
-                </div>
-
-                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
+                <h4 className="activity-title" style={{ marginTop: "0.25rem" }}>
+                  {act.title}
+                </h4>
+                <p className="activity-desc" style={{ marginTop: "0.6rem" }}>
                   {act.description}
                 </p>
-              </motion.div>
-            ))}
-          </div>
+              </div>
+
+              <div className="activity-footer-organizer">
+                <span>{act.organizer}</span>
+                <span style={{ fontFamily: "var(--font-mono)" }}>{act.years}</span>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

@@ -1,53 +1,25 @@
-import {
-  createContext,
-  useContext,
-  useState,
-  useEffect
-} from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
 const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
-
-  const [language, setLanguage] =
-    useState("en");
-
-  useEffect(() => {
-
-    const savedLanguage =
-      localStorage.getItem(
-        "language"
-      );
-
-    if (savedLanguage) {
-      setLanguage(savedLanguage);
-    }
-
-  }, []);
+  const [language, setLanguage] = useState(() => {
+    return localStorage.getItem("language") || "en";
+  });
 
   useEffect(() => {
-
-    localStorage.setItem(
-      "language",
-      language
-    );
-
+    localStorage.setItem("language", language);
   }, [language]);
 
   const toggleLanguage = () => {
-
-    setLanguage(prev =>
-      prev === "en"
-        ? "kh"
-        : "en"
-    );
+    setLanguage((prev) => (prev === "en" ? "kh" : "en"));
   };
 
   return (
     <LanguageContext.Provider
       value={{
         language,
-        toggleLanguage
+        toggleLanguage,
       }}
     >
       {children}
@@ -55,5 +27,4 @@ export const LanguageProvider = ({ children }) => {
   );
 };
 
-export const useLanguage = () =>
-  useContext(LanguageContext);
+export const useLanguage = () => useContext(LanguageContext);

@@ -4,8 +4,7 @@ import {
   FaLinkedin,
   FaTelegram,
   FaMoon,
-  FaSun,
-  FaDownload
+  FaSun
 } from "react-icons/fa";
 
 import { useTheme } from "../context/ThemeContext";

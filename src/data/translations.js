@@ -1,7 +1,7 @@
 const translations = {
   en: {
     home: "Home",
-    about: "About",
+    navAbout: "About",
     skills: "Skills",
     experience: "Experience",
     projects: "Projects",
@@ -35,7 +35,7 @@ const translations = {
 
   kh: {
     home: "ទំព័រដើម",
-    about: "អំពីខ្ញុំ",
+    navAbout: "អំពីខ្ញុំ",
     skills: "ជំនាញ",
     experience: "បទពិសោធន៍",
     projects: "គម្រោង",

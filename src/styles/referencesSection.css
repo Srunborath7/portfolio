@@ -1,0 +1,161 @@
+/* ==========================================================================
+   REFERENCES SECTION STYLES
+   ========================================================================== */
+
+.references-section {
+  position: relative;
+  padding: 4.5rem 0;
+}
+
+.references-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 450px;
+  height: 450px;
+  border-radius: var(--radius-full);
+  filter: blur(140px);
+  pointer-events: none;
+  background: rgba(99, 102, 241, 0.08);
+}
+
+.references-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .references-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.reference-card {
+  padding: 2rem;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+}
+
+.reference-card:hover {
+  border-color: rgba(245, 158, 11, 0.35);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px -10px rgba(245, 158, 11, 0.15);
+}
+
+.reference-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.reference-icon-avatar {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: var(--radius-full);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  color: var(--accent-amber);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.reference-name {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-heading);
+}
+
+.reference-position {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--accent-amber);
+}
+
+.reference-institution {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.reference-contacts-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 1rem;
+  border-radius: var(--radius-lg);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+}
+
+.reference-contact-line {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+
+.ref-icon {
+  color: var(--accent-amber);
+  flex-shrink: 0;
+}
+
+.reference-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.ref-action-email {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.65rem 1rem;
+  border-radius: var(--radius-md);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent-amber), var(--accent-rose));
+  color: #030712;
+  transition: all var(--transition-fast);
+}
+
+.ref-action-email:hover {
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.3);
+  transform: translateY(-1px);
+}
+
+.ref-action-telegram {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.65rem 1rem;
+  border-radius: var(--radius-md);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  border: 1px solid var(--border-card);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  transition: all var(--transition-fast);
+}
+
+.ref-action-telegram:hover {
+  background: var(--bg-card-hover);
+  color: var(--text-heading);
+}

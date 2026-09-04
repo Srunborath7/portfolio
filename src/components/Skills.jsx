@@ -19,24 +19,23 @@ import {
 
 import { FaCss3Alt } from "react-icons/fa";
 
+const skillsData = [
+  { name: "React.js", icon: <FaReact />, level: 90 },
+  { name: "JavaScript", icon: <SiJavascript />, level: 95 },
+  { name: "HTML5", icon: <SiHtml5 />, level: 95 },
+  { name: "CSS3", icon: <FaCss3Alt />, level: 90 },
+  { name: "Flutter", icon: <SiFlutter />, level: 85 },
+  { name: "Node.js", icon: <FaNodeJs />, level: 88 },
+  { name: "Laravel", icon: <SiLaravel />, level: 80 },
+  { name: "Spring Boot", icon: <SiSpringboot />, level: 75 },
+  { name: "MySQL", icon: <SiMysql />, level: 85 },
+  { name: "MongoDB", icon: <SiMongodb />, level: 80 },
+  { name: "Git", icon: <FaGitAlt />, level: 90 },
+  { name: "Linux", icon: <FaLinux />, level: 70 }
+];
+
 export default function Skills() {
-
-  const skillsData = [
-    { name: "React.js", icon: <FaReact />, level: 90 },
-    { name: "JavaScript", icon: <SiJavascript />, level: 95 },
-    { name: "HTML5", icon: <SiHtml5 />, level: 95 },
-    { name: "CSS3", icon: <FaCss3Alt />, level: 90 },
-    { name: "Flutter", icon: <SiFlutter />, level: 85 },
-    { name: "Node.js", icon: <FaNodeJs />, level: 88 },
-    { name: "Laravel", icon: <SiLaravel />, level: 80 },
-    { name: "Spring Boot", icon: <SiSpringboot />, level: 75 },
-    { name: "MySQL", icon: <SiMysql />, level: 85 },
-    { name: "MongoDB", icon: <SiMongodb />, level: 80 },
-    { name: "Git", icon: <FaGitAlt />, level: 90 },
-    { name: "Linux", icon: <FaLinux />, level: 70 }
-  ];
-
-  const [levels, setLevels] = useState(skillsData.map(() => 0));
+  const [levels, setLevels] = useState(() => skillsData.map(() => 0));
 
   useEffect(() => {
     const interval = setInterval(() => {

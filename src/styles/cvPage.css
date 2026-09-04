@@ -1,0 +1,236 @@
+/* ==========================================================================
+   CV PAGE STYLES
+   ========================================================================== */
+
+.cv-page-section {
+  position: relative;
+  min-height: 100vh;
+  padding: 3rem 0 5rem;
+}
+
+.cv-ambient-glow {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 350px;
+  height: 350px;
+  border-radius: var(--radius-full);
+  filter: blur(140px);
+  pointer-events: none;
+  background: rgba(245, 158, 11, 0.1);
+}
+
+@media (min-width: 640px) {
+  .cv-ambient-glow {
+    width: 600px;
+    height: 600px;
+  }
+}
+
+.cv-action-bar-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.cv-layout-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+
+@media (min-width: 1024px) {
+  .cv-layout-grid {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+}
+
+/* Document Viewer Card */
+.cv-viewer-card {
+  padding: 1rem;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-card);
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .cv-viewer-card {
+    padding: 1.5rem;
+  }
+}
+
+.cv-viewer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.cv-viewer-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.cv-preview-image-box {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.cv-preview-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform var(--transition-normal);
+}
+
+.cv-preview-image-box:hover .cv-preview-img {
+  transform: scale(1.02);
+}
+
+.cv-preview-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(3, 7, 18, 0.4);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.cv-preview-image-box:hover .cv-preview-overlay {
+  opacity: 1;
+}
+
+.cv-preview-overlay-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  background: #ffffff;
+  color: #030712;
+  box-shadow: var(--shadow-md);
+}
+
+/* Side Metadata Panel */
+.cv-metadata-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.cv-meta-block {
+  padding: 1.75rem;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cv-meta-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--text-heading);
+}
+
+.cv-meta-title-icon {
+  color: var(--accent-amber);
+}
+
+.cv-summary-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.cv-summary-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.cv-bullet {
+  color: var(--accent-amber);
+  margin-top: 0.1rem;
+}
+
+/* Fullscreen Lightbox Modal */
+.cv-lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(3, 7, 18, 0.9);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.cv-lightbox-content {
+  position: relative;
+  max-width: 900px;
+  max-height: 90vh;
+  overflow: auto;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-card);
+  background: #ffffff;
+  padding: 0.5rem;
+}
+
+.cv-lightbox-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-full);
+  background: rgba(3, 7, 18, 0.7);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all var(--transition-fast);
+}
+
+.cv-lightbox-close:hover {
+  background: #030712;
+  transform: scale(1.1);
+}

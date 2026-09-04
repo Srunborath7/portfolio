@@ -1,9 +1,9 @@
-import React from "react";
 import ProjectsSection from "../layouts/ProjectsSection";
+import "../../styles/projectsPage.css";
 
 export default function ProjectsPage() {
   return (
-    <div className="pt-8">
+    <div className="projects-page-wrapper">
       <ProjectsSection />
     </div>
   );

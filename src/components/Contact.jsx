@@ -40,7 +40,7 @@ export default function Contact() {
         text: "Thank you for contacting me. I will reply soon."
       });
 
-    } catch (error) {
+    } catch {
       Swal.fire({
         icon: "error",
         title: "Failed!",

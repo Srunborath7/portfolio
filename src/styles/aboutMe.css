@@ -1,0 +1,242 @@
+/* ==========================================================================
+   ABOUT ME STYLES
+   ========================================================================== */
+
+.about-section {
+  position: relative;
+  padding: 4.5rem 0;
+  overflow: hidden;
+  background: var(--bg-secondary);
+}
+
+.about-glow {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 350px;
+  height: 350px;
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: var(--radius-full);
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+/* Stats Cards Grid */
+.stats-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 3.5rem;
+}
+
+@media (min-width: 1024px) {
+  .stats-cards-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+.stat-card-box {
+  padding: 1.5rem;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+}
+
+.stat-card-value {
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: var(--text-heading);
+}
+
+@media (min-width: 640px) {
+  .stat-card-value {
+    font-size: 2.25rem;
+  }
+}
+
+.stat-card-label {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--accent-amber);
+}
+
+.stat-card-sub {
+  font-size: 0.725rem;
+  color: var(--text-muted);
+}
+
+/* Two Column Content Grid */
+.about-main-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+@media (min-width: 1024px) {
+  .about-main-grid {
+    grid-template-columns: 1.15fr 0.85fr;
+  }
+}
+
+.about-text-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.about-text-column p {
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+
+.about-key-strengths-box {
+  padding: 1.5rem;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.about-strengths-title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  color: var(--text-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.strength-check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+}
+
+.strength-icon {
+  color: var(--accent-amber);
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.about-actions-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 0.5rem;
+}
+
+/* Right Card Profile Card */
+.about-profile-card {
+  padding: 2rem;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-card);
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.profile-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.profile-avatar-wrapper {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: var(--radius-full);
+  padding: 3px;
+  background: linear-gradient(135deg, var(--accent-amber), var(--accent-rose));
+  flex-shrink: 0;
+}
+
+.profile-avatar-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-full);
+}
+
+.profile-card-info h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-heading);
+}
+
+.profile-card-info p {
+  font-size: 0.775rem;
+  color: var(--accent-amber);
+  font-weight: 600;
+}
+
+.contact-quick-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.contact-quick-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+
+.contact-quick-icon {
+  color: var(--accent-amber);
+  flex-shrink: 0;
+}
+
+.traits-section-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.traits-title {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.traits-badge-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.trait-tag {
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}

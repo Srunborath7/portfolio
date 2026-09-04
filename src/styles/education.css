@@ -1,0 +1,196 @@
+/* ==========================================================================
+   EDUCATION STYLES
+   ========================================================================== */
+
+.education-section {
+  position: relative;
+  min-height: 100vh;
+  padding: 4.5rem 0;
+}
+
+.education-glow {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  width: 350px;
+  height: 350px;
+  border-radius: var(--radius-full);
+  filter: blur(120px);
+  pointer-events: none;
+  background: rgba(244, 63, 94, 0.1);
+}
+
+/* Education Degrees Grid */
+.education-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .education-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.education-card {
+  padding: 1.75rem;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+  transition: all var(--transition-normal);
+}
+
+.education-card:hover {
+  border-color: rgba(245, 158, 11, 0.35);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px -10px rgba(245, 158, 11, 0.15);
+}
+
+.education-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.institution-badge {
+  font-size: 0.725rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  background: var(--badge-bg);
+  border: 1px solid var(--badge-border);
+  color: var(--badge-text);
+}
+
+.edu-year-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+}
+
+.education-institution-name {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-heading);
+}
+
+.education-department-name {
+  font-size: 0.875rem;
+  color: var(--accent-amber);
+  font-weight: 600;
+}
+
+.education-degree-desc {
+  font-size: 0.8125rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.education-topics-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.edu-topic-tag {
+  font-size: 0.7rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+}
+
+/* Volunteer Activities Grid */
+.activities-sub-header {
+  text-align: center;
+  max-width: 36rem;
+  margin: 0 auto 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.activities-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-heading);
+}
+
+.activities-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .activities-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.activity-card {
+  padding: 1.5rem;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+}
+
+.activity-card:hover {
+  border-color: rgba(245, 158, 11, 0.3);
+  transform: translateY(-2px);
+}
+
+.activity-title {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--text-heading);
+}
+
+.activity-role {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-amber);
+}
+
+.activity-desc {
+  font-size: 0.775rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.activity-footer-organizer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-subtle);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
