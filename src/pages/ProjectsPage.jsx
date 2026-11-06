@@ -1,5 +1,5 @@
-import ProjectsSection from "../layouts/ProjectsSection";
-import "../../styles/projectsPage.css";
+import ProjectsSection from "../components/layouts/ProjectsSection";
+import "../styles/projectsPage.css";
 
 export default function ProjectsPage() {
   return (

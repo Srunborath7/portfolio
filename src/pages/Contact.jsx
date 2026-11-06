@@ -11,9 +11,9 @@ import {
   Clock,
 } from "lucide-react";
 import Swal from "sweetalert2";
-import { useApp } from "../../context/AppContext";
-import { profileData } from "../../data/profileData";
-import "../../styles/contact.css";
+import { useApp } from "../context/AppContext";
+import { profileData } from "../data/profileData";
+import "../styles/contact.css";
 
 export default function Contact() {
   const { t, language } = useApp();

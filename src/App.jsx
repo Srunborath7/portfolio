@@ -1,14 +1,14 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MasterLayout from "./components/layouts/MasterLayout";
-import HomePage from "./components/pages/HomePage";
-import ProjectsPage from "./components/pages/ProjectsPage";
-import SkillsPage from "./components/pages/SkillsPage";
-import CVPage from "./components/pages/CVPage";
-import AboutMe from "./components/pages/AboutMe";
-import Education from "./components/pages/Education";
-import Contact from "./components/pages/Contact";
-import WorkExperience from "./components/pages/WorkExperience";
-import PageNotFound from "./components/pages/PageNotFound";
+import HomePage from "./pages/HomePage";
+import ProjectsPage from "./pages/ProjectsPage";
+import SkillsPage from "./pages/SkillsPage";
+import CVPage from "./pages/CVPage";
+import AboutMe from "./pages/AboutMe";
+import Education from "./pages/Education";
+import Contact from "./pages/Contact";
+import WorkExperience from "./pages/WorkExperience";
+import PageNotFound from "./pages/PageNotFound";
 
 function App() {
   return (

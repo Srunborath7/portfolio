@@ -1,5 +1,5 @@
-import SkillsSection from "../layouts/SkillsSection";
-import "../../styles/skillsPage.css";
+import SkillsSection from "../components/layouts/SkillsSection";
+import "../styles/skillsPage.css";
 
 export default function SkillsPage() {
   return (

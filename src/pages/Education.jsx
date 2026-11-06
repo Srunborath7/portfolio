@@ -4,9 +4,9 @@ import {
   Calendar,
   HeartHandshake,
 } from "lucide-react";
-import { useApp } from "../../context/AppContext";
-import { educationData } from "../../data/educationData";
-import "../../styles/education.css";
+import { useApp } from "../context/AppContext";
+import { educationData } from "../data/educationData";
+import "../styles/education.css";
 
 export default function Education() {
   const { t, language } = useApp();

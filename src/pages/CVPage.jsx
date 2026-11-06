@@ -16,10 +16,10 @@ import {
   MapPin,
   X,
 } from "lucide-react";
-import CVImage from "../../assets/cv.png";
-import { useApp } from "../../context/AppContext";
-import { profileData } from "../../data/profileData";
-import "../../styles/cvPage.css";
+import CVImage from "../assets/cv.png";
+import { useApp } from "../context/AppContext";
+import { profileData } from "../data/profileData";
+import "../styles/cvPage.css";
 
 export default function CVPage() {
   const { t, language } = useApp();

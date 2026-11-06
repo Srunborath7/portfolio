@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import Cover from "../../assets/cover.png";
+import Cover from "../assets/cover.png";
 import {
   GraduationCap,
   Sparkles,
@@ -10,9 +10,9 @@ import {
   CheckCircle,
   FileText,
 } from "lucide-react";
-import { useApp } from "../../context/AppContext";
-import { profileData } from "../../data/profileData";
-import "../../styles/aboutMe.css";
+import { useApp } from "../context/AppContext";
+import { profileData } from "../data/profileData";
+import "../styles/aboutMe.css";
 
 export default function AboutMe() {
   const { t, language } = useApp();

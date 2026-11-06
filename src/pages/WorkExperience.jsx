@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { Briefcase, Code, Sparkles, Building2, Calendar, CheckCircle2 } from "lucide-react";
-import { useApp } from "../../context/AppContext";
-import { experienceData } from "../../data/experienceData";
-import "../../styles/workExperience.css";
+import { useApp } from "../context/AppContext";
+import { experienceData } from "../data/experienceData";
+import "../styles/workExperience.css";
 
 const iconMap = {
   Code: <Code size={24} style={{ color: "var(--accent-amber)" }} />,

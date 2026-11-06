@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Home, HelpCircle } from "lucide-react";
-import { useApp } from "../../context/AppContext";
-import "../../styles/pageNotFound.css";
+import { useApp } from "../context/AppContext";
+import "../styles/pageNotFound.css";
 
 export default function PageNotFound() {
   const { language } = useApp();
